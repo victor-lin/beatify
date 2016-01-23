@@ -2,7 +2,6 @@
 <head>
   <title>Beatify</title>
   <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <script type="text/javascript" src="{{ url_for('static', filename='dropfile.js') }}"></script>
 </head>
 <body>
   <div class="header">
@@ -10,6 +9,9 @@
   </div>
   <div class="upload">
     <div id="status">Add a music file to analyze.</div>
-    <input type="file" name="mp3">
+    <div class="upload-button">
+      <button id="chooseFile" onclick="document.getElementById('fileID').click(); return false;" />Choose a file</button>
+    </div>
+    <input type="file" id="fileID" accept="audio/mp3" style="visibility: hidden;" />
   </div>
 </body>
