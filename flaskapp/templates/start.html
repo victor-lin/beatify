@@ -1,0 +1,15 @@
+<!doctype html>
+<head>
+  <title>Beatify</title>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script type="text/javascript" src="{{ url_for('static', filename='dropfile.js') }}"></script>
+</head>
+<body>
+  <div class="header">
+    <h1>Welcome to Beatify</h1>
+  </div>
+  <div class="upload">
+    <div id="status">Add a music file to analyze.</div>
+    <input type="file" name="mp3">
+  </div>
+</body>

@@ -1,0 +1,37 @@
+/*--------------- DEFAULTS ---------------*/
+
+html, body {
+    background: #293670;
+    color: #aaa;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    font-size: 20px;
+    margin: 0 0;
+}
+
+h1 {
+    font-size: 64px;
+    font-weight: 100;
+}
+
+.header {
+    text-align: center;
+    background-color: #222d5d;
+    padding: 50px 0px;
+}
+
+/* MAIN PAGE */
+
+.upload {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#drop {
+    min-height: 150px;
+    width: 70%;
+    border: 1px solid #0c1021;
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+}
