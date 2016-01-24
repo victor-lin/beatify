@@ -26,12 +26,11 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('uploaded_file',
-                                    filename=filename))
+            return redirect(url_for('results'))
     return render_template('start.html')
 
 
-@app.route('/results', methods='POST')
+@app.route('/results', methods=['GET', 'POST'])
 def results():
     return render_template('results.html')
 

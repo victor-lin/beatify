@@ -22,7 +22,8 @@ h1 {
 
 /* MAIN PAGE */
 
-.upload {
+.upload,
+.results {
     text-align: center;
     margin-top: 20px;
 }
@@ -52,3 +53,5 @@ h1 {
 #chooseFile:active {
     color: #000;
 }
+
+/* RESULTS */
