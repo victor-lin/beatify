@@ -1,12 +1,6 @@
 {% extends "base.html" %}
 {% block body %}
 <div class="upload">
-  <div id="status">Add a music file to analyze.</div>
-  <div class="upload-button">
-    <button id="chooseFile" onclick="document.getElementById('fileID').click(); return false;" />Choose a file</button>
-  </div>
-  <form method="POST">
-    <input type="file" id="fileID" accept="audio/mp3" style="visibility: hidden;" />
-  </form>
+  {{swag}}
 </div>
 {% endblock %}
