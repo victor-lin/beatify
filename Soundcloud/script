@@ -1,0 +1,6 @@
+function loadIt(url){
+	xhttp = new XMLHttpRequest();
+	xhttp.open("GET", url, false);
+	xhttp.send();
+	return xhttp.responseText;
+};
