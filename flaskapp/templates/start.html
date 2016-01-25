@@ -3,12 +3,14 @@
 <div class="upload">
   <div id="status">Add a music file to analyze.</div>
   <div class="upload-button">
-    <button id="chooseFile" onclick="document.getElementById('fileID').click(); return false;" />Choose a file</button>
+    <button id="chooseFile" onclick="openModal()" />Choose a file</button>
   </div>
   <form action="" method="post" enctype="multipart/form-data">
-    <input type="file" name="file" accept="audio/mp3" style="visibility: hidden;" id="fileID">
-    <input type="submit" value="Upload">
+    <input type="file" name="file" accept="audio/mp3" onchange="afterSelection()" style="width: 0px; height: 0px;visibility: hidden;" id="fileID">
+    <span id="fileName"></span>
+    <input type="submit" value="Upload" id="upload" style="visibility: hidden;">
   </form>
 </div>
+<script type="text/javascript" src="{{ url_for('static', filename='uploadbutton.js') }}"></script>
 <!-- <script type="text/javascript" src="{{ url_for('static', filename='audio.js') }}"></script> -->
 {% endblock %}

@@ -1,7 +1,8 @@
 import os
-import sys
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 from werkzeug import secure_filename, SharedDataMiddleware
+
+import id3reader
 
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -28,19 +29,28 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('results'))
+            return redirect(url_for('results_page', filename=filename))
     return render_template('start.html')
 
 
 @app.route('/results', methods=['GET', 'POST'])
-def results():
-    return render_template('results.html')
+def results_page():
+    filename = request.args['filename']
+    filepath = os.path.join(UPLOAD_FOLDER, filename)
+    id3r = id3reader.Reader(filepath)
+    song_title = id3r.getValue('title')
+    artist_name = id3r.getValue('artist')
+    return render_template('results.html', song_title=song_title,
+                           artist_name=artist_name)
 
 
-@app.route('/uploads/<filename>')
-def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'],
-                               filename)
+# def delete_item(item_id):
+#     new_id = item_id
+#     item = self.session.query(Item).get(item_id)
+#     os.remove(os.path.join(app.config['UPLOADED_ITEMS_DEST'], item.filename))
+#     self.session.delete(item)
+#     db.session.commit()
+#     return redirect(url_for('admin_items'))
 
 
 def allowed_file(filename):

@@ -9,15 +9,26 @@ html, body {
     margin: 0 0;
 }
 
-h1 {
+h1,
+h1>a {
     font-size: 64px;
     font-weight: 100;
+    display: block;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    height: 76px;
+    width: 1280px;
 }
 
 .header {
     text-align: center;
     background-color: #222d5d;
     padding: 50px 0px;
+}
+
+hr {
+    border-top: 0px;
+    border-bottom: 1px solid #aaa;
+    width: 75%;
 }
 
 /* MAIN PAGE */
@@ -37,7 +48,8 @@ h1 {
     display: inline-block;
 }
 
-#chooseFile {
+#chooseFile,
+input[value="Upload"] {
     margin: 10px 0px;
     font-size: 20px;
     padding: 10px 30px;
@@ -46,12 +58,45 @@ h1 {
     background-color: rgb(192, 192, 192);
 }
 
-#chooseFile:hover {
+#chooseFile:hover,
+input[value="Upload"]:hover {
     background-color: rgb(150, 150, 150);
 }
 
-#chooseFile:active {
+#chooseFile:active,
+input[value="Upload"]:active {
     color: #000;
 }
 
+#fileName {
+    display: block;
+}
+
 /* RESULTS */
+
+input[type="text"] {
+    color: #000;
+    margin-bottom: 16px;
+    margin-top: 5px;
+    width: 20%;
+    height: 16px;
+    padding: 6px 6px;
+    font-size: 16px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+
+input[type="text"]:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6)
+}

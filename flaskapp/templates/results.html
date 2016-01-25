@@ -1,7 +1,22 @@
 {% extends "base.html" %}
 {% block body %}
 <div class="results">
-  Results
-  {{ swag }}
-</div>
+{% if song_title and artist_name %}
+  Results for <span id="songTitle">{{ song_title }}</span> by <span id="artistName">{{ artist_name }}</span>
+{% else %}
+  <form>
+  {% if not song_title %}
+    No song title found in the file.
+  {% endif %}
+  {% if not artist_name %}
+    No artist name found in the file.
+    <br>
+      <input type="text" id="artistInput" placeholder="Artist" />
+  {% endif %}
+  <input type="submit" style="position: absolute; height: 0px; width: 0px; visibility: hidden;" />
+  </form>
+  <hr>
+  </div>
+{% endif %}
+<script type="text/javascript" href="{{ url_for('static', filename='soundcloud.js') }}"></script>
 {% endblock %}
